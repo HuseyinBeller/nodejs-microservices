@@ -14,7 +14,7 @@ module.exports = (app, channel) => {
     app.post('/signup', async (req,res,next) => {
         const { email, password, phone } = req.body;
         const { data } = await service.SignUp({ email, password, phone}); 
-        res.json(data);
+        res.json({ data, message: "updated with CD configuration" });
 
     });
 
