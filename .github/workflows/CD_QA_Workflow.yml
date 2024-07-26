@@ -28,7 +28,7 @@ jobs:
         run: |
           touch .env
           echo APP_SECRET=jg_youtube_tutorial >> .env
-          echo MONGODB_URI=mongodb://nosql-db/msytt_customer >> .env
+          echo MONGODB_URI=mongodb://nosql-db/msytt_product >> .env
           echo MSG_QUEUE_URL=amqps://jowhbemc:yXmdmSQD7j8OCCTS1aaVFmhO61zD_JFu@sparrow.rmq.cloudamqp.com/jowhbemc >> .env
           echo EXCHANGE_NAME=ONLINE_STORE >> .env
           echo PORT=8082 >> .env
@@ -39,7 +39,7 @@ jobs:
         run: |
           touch .env
           echo APP_SECRET=jg_youtube_tutorial >> .env
-          echo MONGODB_URI=mongodb://nosql-db/msytt_customer >> .env
+          echo MONGODB_URI=mongodb://nosql-db/msytt_shopping >> .env
           echo MSG_QUEUE_URL=amqps://jowhbemc:yXmdmSQD7j8OCCTS1aaVFmhO61zD_JFu@sparrow.rmq.cloudamqp.com/jowhbemc >> .env
           echo EXCHANGE_NAME=ONLINE_STORE >> .env
           echo PORT=8083 >> .env
