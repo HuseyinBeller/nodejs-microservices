@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: null
+  workflow_dispatch: 
+  
 jobs:
   deploy_on_qa:
+  
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source Code
@@ -15,9 +17,9 @@ jobs:
         working-directory: ./customer
         run: |
           touch .env
-          echo APP_SECRET=jg_youtube_tutorial >> .env
-          echo MONGODB_URI=mongodb://nosql-db/msytt_customer >> .env
-          echo MSG_QUEUE_URL=amqps://jowhbemc:yXmdmSQD7j8OCCTS1aaVFmhO61zD_JFu@sparrow.rmq.cloudamqp.com/jowhbemc >> .env
+          echo APP_SECRET=${{ secrets.QA_APP_SECRET }} >> .env
+          echo MONGODB_URI=${{ secrets.QA_CUSTOMER_DB_URL }} >> .env
+          echo MSG_QUEUE_URL=${{ secrets.QA_MSG_QUEUE_URL }} >> .env
           echo EXCHANGE_NAME=ONLINE_STORE >> .env
           echo PORT=8081 >> .env
           cat .env
@@ -27,9 +29,9 @@ jobs:
         working-directory: ./products
         run: |
           touch .env
-          echo APP_SECRET=jg_youtube_tutorial >> .env
-          echo MONGODB_URI=mongodb://nosql-db/msytt_product >> .env
-          echo MSG_QUEUE_URL=amqps://jowhbemc:yXmdmSQD7j8OCCTS1aaVFmhO61zD_JFu@sparrow.rmq.cloudamqp.com/jowhbemc >> .env
+          echo APP_SECRET=${{ secrets.QA_APP_SECRET }} >> .env
+          echo MONGODB_URI=${{ secrets.QA_PRODUCTS_DB_URL }} >> .env
+          echo MSG_QUEUE_URL=${{ secrets.QA_MSG_QUEUE_URL }} >> .env
           echo EXCHANGE_NAME=ONLINE_STORE >> .env
           echo PORT=8082 >> .env
           cat .env
@@ -38,9 +40,9 @@ jobs:
         working-directory: ./shopping
         run: |
           touch .env
-          echo APP_SECRET=jg_youtube_tutorial >> .env
-          echo MONGODB_URI=mongodb://nosql-db/msytt_shopping >> .env
-          echo MSG_QUEUE_URL=amqps://jowhbemc:yXmdmSQD7j8OCCTS1aaVFmhO61zD_JFu@sparrow.rmq.cloudamqp.com/jowhbemc >> .env
+          echo APP_SECRET=${{ secrets.QA_APP_SECRET }} >> .env
+          echo MONGODB_URI=${{ secrets.QA_SHOPPING_DB_URL }} >> .env
+          echo MSG_QUEUE_URL=${{ secrets.QA_MSG_QUEUE_URL }} >> .env
           echo EXCHANGE_NAME=ONLINE_STORE >> .env
           echo PORT=8083 >> .env
           cat .env
