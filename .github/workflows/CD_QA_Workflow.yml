@@ -22,7 +22,7 @@ jobs:
           echo PORT=8081 >> .env
           cat .env
 
-          cat .env
+         
       - name: Create Products Env file
         working-directory: ./products
         run: |
