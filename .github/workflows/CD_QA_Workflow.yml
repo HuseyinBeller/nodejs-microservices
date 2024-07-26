@@ -1,4 +1,4 @@
----
+
 name: Deploy on QA
 on:
   push:
@@ -7,10 +7,13 @@ on:
   workflow_dispatch: null
 jobs:
   deploy_on_qa:
+    
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v2
+
       - name: Create Customer Env file
         working-directory: ./customer
         run: |
@@ -22,7 +25,7 @@ jobs:
           echo PORT=8081 >> .env
           cat .env
 
-          cat .env
+         
       - name: Create Products Env file
         working-directory: ./products
         run: |
